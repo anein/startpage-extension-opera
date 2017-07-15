@@ -35,7 +35,7 @@ export class SPUrl {
         // simple destructuring. Rrrr!
         const {limit, format, ...restParams} = this._params;
 
-        const params = {query: text, ...restParams};
+        const params = {query: text, prf: options.prf, ...restParams};
 
         if (options.post) {
 
