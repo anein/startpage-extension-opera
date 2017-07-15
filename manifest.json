@@ -1,0 +1,33 @@
+{
+  "name"            : "__MSG_ext_name__",
+  "version"         : "0.1.0",
+  "description"     : "__MSG_ext_description__",
+  "author"          : "__MSG_ext_author__",
+  "manifest_version": 2,
+  "default_locale"  : "en",
+  "icons"           : {
+    "16" : "img/sp-favicon-16x16.png",
+    "48" : "img/sp-favicon-48x48.png",
+    "128": "img/sp-favicon-128x128.png"
+  },
+  "omnibox"         : {
+    "keyword": "sp"
+  },
+  "background"      : {
+    "scripts": [
+      "js/background.js"
+    ]
+  },
+  "options_ui"      : {
+    "chrome_style": true,
+    "page"        : "html/options.html"
+  },
+  "permissions"     : [
+    "https://www.startpage.com/*",
+    // needs for POST requests.
+    "*://*/",
+    "contextMenus",
+    "storage",
+    "tabs"
+  ]
+}

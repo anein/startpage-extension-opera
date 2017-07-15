@@ -1,0 +1,69 @@
+html, body {
+    padding    : 0;
+    margin     : 0;
+    height     : 100%;
+    background : rgb(242, 242, 242);
+    overflow   : hidden;
+}
+
+.container {
+
+    display         : grid;
+    justify-content : center;
+    background      : rgb(255, 255, 255);
+    margin-top      : 20vh;
+
+}
+
+.content {
+    margin         : 0 auto;
+    padding        : 3rem;
+    display        : grid;
+    grid-auto-rows : auto;
+    width          : 400px;
+
+}
+
+.header {
+    text-align : left;
+    margin     : 0 0 2rem;
+}
+
+h2 {
+    letter-spacing : -1.8px;
+    color          : rgb(65, 65, 66);
+    font-size      : 2rem;
+    padding        : 0;
+    margin         : 0;
+    text-transform : uppercase;
+    font-weight    : bold;
+}
+
+.options {
+    grid-row-gap       : 20px;
+    grid-template-rows : auto;
+    display            : grid;
+}
+
+.item {
+    display               : grid;
+    grid-column-gap       : 5px;
+    grid-template-columns : 30% 70%;
+    align-items           : center;
+}
+
+.action {
+    text-align : right;
+}
+
+input[type="text"] {
+    border-radius : 0;
+    padding       : 5px 10px;
+    width         : 100%;
+}
+
+label {
+    color : rgb(86, 86, 86);
+}
+
+

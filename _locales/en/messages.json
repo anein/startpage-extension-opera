@@ -1,0 +1,29 @@
+{
+  "ext_name"       : {
+    "message": "StartPage Search"
+  },
+  "ext_description": {
+    "message": "Unofficial StartPage.com search extension for Opera."
+  },
+  "ext_author"     : {
+    "message": "Alexander Ein (@AlexanderEin)"
+  },
+  "context_menu_search" : {
+    "message" : "Search StartPage for \"%s\""
+  },
+  "options_page"   : {
+    "message": "StartPage Extension Options"
+  },
+  "options_title"  : {
+    "message": "Options"
+  },
+  "options_prf"    : {
+    "message": "Obfuscated Key"
+  },
+  "options_post"   : {
+    "message": "Use POST"
+  },
+  "options_suggestions"   : {
+    "message": "Search suggestions"
+  }
+}
