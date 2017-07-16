@@ -27,7 +27,6 @@
     // needs for POST requests.
     "*://*/",
     "contextMenus",
-    "storage",
-    "tabs"
+    "storage"
   ]
 }
