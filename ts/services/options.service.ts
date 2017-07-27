@@ -6,7 +6,7 @@ export class SPOptions {
     private static instance: SPOptions;
 
     // todo: As a variant,the options should be stored in the local storage, but probably some guys would gain access to it.
-    // stores actual user's options to have access to them without using callbacks.
+    // it stores actual user's options to have access to them without using callbacks.
     private _options: ISPOptions = null;
 
     private constructor() {
@@ -44,7 +44,7 @@ export class SPOptions {
     }
 
     /**
-     * Retrieves th options from the chrome storage.
+     * Retrieves the options object from the chrome storage.
      *
      * @returns {Promise<ISPOptions>}
      */
