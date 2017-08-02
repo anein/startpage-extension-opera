@@ -10,5 +10,5 @@ For convenience of using StartPage, the extension supports the following options
 - Query suggestions;
 - Block particular search engines.
 
-~~~
+---
 Good luck.
