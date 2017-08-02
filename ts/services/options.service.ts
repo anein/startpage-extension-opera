@@ -1,77 +1,81 @@
-import {ISPOptions} from "./interfaces/options.interface";
-import {SPOptionsModel} from "./models/options.model";
+import { ISPOptions } from "./interfaces/options.interface";
+import { SPOptionsModel } from "./models/options.model";
 
 export class SPOptions {
 
-    private static instance: SPOptions;
+  private static instance: SPOptions;
 
-    // todo: As a variant,the options should be stored in the local storage, but probably some guys would gain access to it.
-    // it stores actual user's options to have access to them without using callbacks.
-    private _options: ISPOptions = null;
+  // todo: As a variant,the options should be stored in the local storage, but probably some guys would gain access to it.
+  // it stores actual user's options to have access to them without using callbacks.
+  private _options: ISPOptions = null;
 
-    private constructor() {
+  private constructor() {
 
-        // init storage listener
-        chrome.storage.onChanged.addListener((item) => {
+    // init storage listener
+    chrome.storage.onChanged.addListener( ( item ) => {
 
-            if (item.post) {
-                this._options.post = item.post.newValue;
-            }
+      if (item.post) {
+        this._options.post = item.post.newValue;
+      }
 
-            if (item.prf) {
-                this._options.prf = item.prf.newValue;
-            }
+      if (item.prf) {
+        this._options.prf = item.prf.newValue;
+      }
 
-            if (item.suggestions) {
-                this._options.suggestions = item.suggestions.newValue;
-            }
+      if (item.suggestions) {
+        this._options.suggestions = item.suggestions.newValue;
+      }
 
-        });
+      if (item.filter) {
+        this._options.filter = item.filter.newValue;
+      }
 
-    }
+    } );
 
-    public static get Instance(): SPOptions {
-        return this.instance || (this.instance = new SPOptions());
-    }
+  }
 
-    /**
-     * Gets the saved options object.
-     *
-     * @returns {ISPOptions} options
-     */
-    public get options(): ISPOptions {
-        return this._options;
-    }
+  public static get Instance(): SPOptions {
+    return this.instance || (this.instance = new SPOptions());
+  }
 
-    /**
-     * Retrieves the options object from the chrome storage.
-     *
-     * @returns {Promise<ISPOptions>}
-     */
-    public load(): Promise<ISPOptions> {
+  /**
+   * Gets the saved options object.
+   *
+   * @returns {ISPOptions} options
+   */
+  public get options(): ISPOptions {
+    return this._options;
+  }
 
-        return new Promise((resolve) => {
+  /**
+   * Retrieves the options object from the chrome storage.
+   *
+   * @returns {Promise<ISPOptions>}
+   */
+  public load(): Promise<ISPOptions> {
 
-            chrome.storage.sync.get((item: ISPOptions) => {
+    return new Promise( ( resolve ) => {
 
-                this._options = new SPOptionsModel(item);
-                resolve(this._options);
-            });
+      chrome.storage.sync.get( ( item: ISPOptions ) => {
 
-        });
-    }
+        this._options = new SPOptionsModel( item );
+        resolve( this._options );
+      } );
 
-    /**
-     * Puts the options object to the chrome storage, and updates the local object.
-     *
-     * @param {ISPOptions} item
-     */
-    public save(item: ISPOptions): void {
+    } );
+  }
 
-        this._options = item;
+  /**
+   * Puts the options object to the chrome storage, and updates the local object.
+   *
+   * @param {ISPOptions} item
+   */
+  public save( item: ISPOptions ): void {
 
-        chrome.storage.sync.set(item);
+    this._options = item;
 
-    }
+    chrome.storage.sync.set( item );
+
+  }
 
 }

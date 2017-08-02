@@ -1,9 +1,30 @@
 html, body {
-    padding    : 0;
-    margin     : 0;
-    height     : 100%;
-    background : rgb(242, 242, 242);
-    overflow   : hidden;
+    padding : 0;
+    margin  : 0;
+}
+
+input[type="text"] {
+    border-radius : 0;
+    padding       : 5px 10px;
+    width         : 100%;
+}
+
+h2 {
+    letter-spacing : -1.8px;
+    color          : rgb(65, 65, 66);
+    font-size      : 2rem;
+    padding        : 0;
+    margin         : 0;
+    text-transform : uppercase;
+    font-weight    : bold;
+}
+
+label {
+    color : rgb(86, 86, 86);
+}
+
+small {
+    color : rgb(204, 204, 204)
 }
 
 .container {
@@ -11,7 +32,7 @@ html, body {
     display         : grid;
     justify-content : center;
     background      : rgb(255, 255, 255);
-    margin-top      : 20vh;
+    margin-top      : 6rem;
 
 }
 
@@ -29,18 +50,8 @@ html, body {
     margin     : 0 0 2rem;
 }
 
-h2 {
-    letter-spacing : -1.8px;
-    color          : rgb(65, 65, 66);
-    font-size      : 2rem;
-    padding        : 0;
-    margin         : 0;
-    text-transform : uppercase;
-    font-weight    : bold;
-}
-
 .options {
-    grid-row-gap       : 20px;
+    grid-row-gap       : 10px;
     grid-template-rows : auto;
     display            : grid;
 }
@@ -52,18 +63,23 @@ h2 {
     align-items           : center;
 }
 
+.item.baseline {
+    align-items : baseline;
+}
+
 .action {
     text-align : right;
 }
 
-input[type="text"] {
-    border-radius : 0;
-    padding       : 5px 10px;
-    width         : 100%;
+.title.small {
+    font-size      : 0.6rem;
+    text-transform : uppercase;
 }
 
-label {
-    color : rgb(86, 86, 86);
+.red {
+    color : rgb(212, 58, 37);
 }
 
-
+.blue {
+    color : rgb(98, 136, 197);
+}

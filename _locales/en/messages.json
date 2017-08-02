@@ -1,29 +1,71 @@
 {
-  "ext_name"       : {
+  "ext_name"              : {
     "message": "StartPage Search"
   },
-  "ext_description": {
+  "ext_description"       : {
     "message": "Unofficial StartPage.com search extension for Opera."
   },
-  "ext_author"     : {
+  "ext_author"            : {
     "message": "Alexander Ein (@AlexanderEin)"
   },
-  "context_menu_search" : {
-    "message" : "Search StartPage for \"%s\""
+  "context_menu_search"   : {
+    "message": "Search StartPage for \"%s\""
   },
-  "options_page"   : {
+  "options_page"          : {
     "message": "StartPage Extension Options"
   },
-  "options_title"  : {
+  "options_w_start"         : {
+    "message": "start"
+  },
+  "options_w_page"         : {
+    "message": "page"
+  },
+  "options_title"         : {
     "message": "Options"
   },
-  "options_prf"    : {
+  "options_prf"           : {
     "message": "Obfuscated Key"
   },
-  "options_post"   : {
+  "options_post"          : {
     "message": "Use POST"
+  },
+  "options_block"         : {
+    "message": "Block engines"
+  },
+  "options_block_hint"         : {
+    "message": "uses GET requests"
   },
   "options_suggestions"   : {
     "message": "Search suggestions"
+  },
+  "options_block_google"  : {
+    "message": "Google"
+  },
+  "options_block_duckduck": {
+    "message": "DuckDuck"
+  },
+  "options_block_yandex"  : {
+    "message": "Yandex"
+  },
+  "options_block_rambler" : {
+    "message": "Rambler"
+  },
+  "options_block_amazon"  : {
+    "message": "Amazon"
+  },
+  "options_block_baidu"   : {
+    "message": "Baidu"
+  },
+  "options_block_bing"    : {
+    "message": "Bing"
+  },
+  "options_block_wiki"    : {
+    "message": "Wikipedia"
+  },
+  "options_block_seznam"  : {
+    "message": "Seznam"
+  },
+  "options_block_yahoo"  : {
+    "message": "Yahoo"
   }
 }
