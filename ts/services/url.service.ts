@@ -74,6 +74,7 @@ export class SPUrl {
 
     const form = document.createElement( "form" );
     form.method = "POST";
+    form.acceptCharset = "utf-8";
     form.id = "sp-" + Math.random().toString( 16 ).slice( 2 );
     form.action = "[url]";
 
