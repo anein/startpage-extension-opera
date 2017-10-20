@@ -6,8 +6,8 @@ So, if you want to test the extension yourself, just use *yarn* or *npm* to inst
 
 For convenience of using StartPage, the extension supports the following options:
 - Obfuscated key (prf);
-- Use POST;
-- Query suggestions;
+- Use POST; *only with the keyword* 
+- Query suggestions; *only with the keyword* 
 - Block particular search engines.
 
 ---
