@@ -12,7 +12,7 @@ export class SPOptions {
   private constructor() {
 
     // init storage listener
-    chrome.storage.onChanged.addListener( ( item ) => {
+    chrome.storage.onChanged.addListener( ( item  ) => {
 
       if (item.post) {
         this._options.post = item.post.newValue;
@@ -26,8 +26,8 @@ export class SPOptions {
         this._options.suggestions = item.suggestions.newValue;
       }
 
-      if (item.filter) {
-        this._options.filter = item.filter.newValue;
+      if (item.filters) {
+        this._options.filters = item.filters.newValue;
       }
 
     } );

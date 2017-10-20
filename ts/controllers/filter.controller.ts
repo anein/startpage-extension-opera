@@ -4,7 +4,7 @@ import { AvailableFilters } from "@/filters/filters";
 export class FilterController {
 
   // active filters
-  private filters: BaseFilter[] = [];
+  private __filters: BaseFilter[] = [];
 
   /**
    * Creates an instance of FilterController, and sets active filters.
@@ -16,11 +16,31 @@ export class FilterController {
     for (const filter of filters) {
 
       if (filter in AvailableFilters) {
-        this.filters.push( new AvailableFilters[filter]() );
+        this.__filters.push( new AvailableFilters[filter]() );
       }
 
     }
 
+  }
+
+  /**
+   * Get filters.
+   *
+   * @returns {BaseFilter[]}
+   */
+  public get filters() {
+    return this.__filters;
+  }
+
+  public test( url: string ) {
+
+    for (const filter of this.__filters) {
+      if (filter.test( url )) {
+        return true;
+      }
+    }
+
+    return false;
   }
 
   /**
@@ -29,11 +49,11 @@ export class FilterController {
    * @param {string} data
    * @returns {string|null} query string, otherwise null
    */
-  public execute( data: string ): (string | null) {
+  public extract( data: string ): (string | null) {
 
-    for (const filter of this.filters) {
+    for (const filter of this.__filters) {
 
-      const query = filter.execute( data );
+      const query = filter.extract( data );
 
       // found one!
       if (query.length === 3) {
@@ -51,7 +71,7 @@ export class FilterController {
    */
   public hasFilters(): boolean {
 
-    return (this.filters.length > 0);
+    return (this.__filters.length > 0);
 
   }
 

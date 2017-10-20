@@ -37,7 +37,7 @@ class OptionsHandler {
       postEl.checked = SP.options.post;
       sgEl.checked = SP.options.suggestions;
 
-      OptionsHandler.setBlockEngines( SP.options.filter, blEls );
+      OptionsHandler.setBlockEngines( SP.options.filters, blEls );
     } );
   }
 
@@ -48,9 +48,9 @@ class OptionsHandler {
 
     const [prfEl, postEl, sgEl, blEls] = OptionsHandler.getElements();
 
-    const filter = OptionsHandler.getBlockEngines( blEls );
+    const filters = OptionsHandler.getBlockEngines( blEls );
 
-    SP.saveOptions( { prf: prfEl.value, post: (postEl.checked), suggestions: (sgEl.checked), filter } );
+    SP.saveOptions( { prf: prfEl.value, post: (postEl.checked), suggestions: (sgEl.checked), filters } );
   }
 
   /**

@@ -5,7 +5,7 @@ export class SPOptionsModel implements ISPOptions {
   public prf: string = "";
   public post: boolean = false;
   public suggestions: boolean = false;
-  public filter: any[] = [];
+  public filters: any[] = [];
 
   public constructor( item?: ISPOptions ) {
 
@@ -13,7 +13,7 @@ export class SPOptionsModel implements ISPOptions {
       this.prf = (item.prf.length >= 32) ? item.prf : "";
       this.post = item.post;
       this.suggestions = item.suggestions;
-      this.filter = item.filter;
+      this.filters = item.filters;
     }
 
   }

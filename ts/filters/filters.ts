@@ -8,14 +8,17 @@ import { SeznamFilter } from "@/filters/seznam.filter";
 import { YahooFilter } from "@/filters/yahoo.filter";
 import { YandexFilter } from "@/filters/yandex.filter";
 
+/**
+ * List of available filters.
+ */
 export const AvailableFilters = {
+  amazon  : AmazonFilter,
+  baidu   : BaiduFilter,
+  bing    : BingFilter,
+  duckduck: DuckFilter,
   google  : GoogleFilter,
   rambler : RamblerFilter,
-  yandex  : YandexFilter,
-  duckduck: DuckFilter,
-  bing    : BingFilter,
+  seznam  : SeznamFilter,
   yahoo   : YahooFilter,
-  baidu   : BaiduFilter,
-  amazon  : AmazonFilter,
-  seznam  : SeznamFilter
+  yandex  : YandexFilter,
 };

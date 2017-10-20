@@ -14,10 +14,24 @@ SP.retrieveOptions().then( () => {
   };
 
   // update helper
-  const update = ( id: number, queryText: string ): void => {
+  const update = ( id: number, queryText: string, get: boolean = false ) => {
+
     chrome.tabs.update( id, {
-      url: SP.query( queryText ),
+      url: SP.query( decodeURIComponent( queryText ), get ),
     } );
+
+  };
+
+  // process url - extract query parameters from a given url.
+  const processQuery = ( url: string ) => {
+
+    const filter = new FilterController( SP.options.filters );
+
+    const isMatched = filter.test( url );
+    const queryText = filter.extract( url );
+
+    return { isMatched, queryText };
+
   };
 
   /**
@@ -27,9 +41,7 @@ SP.retrieveOptions().then( () => {
 
     // displays query suggestions if the appropriate flag was set
     if (SP.options.suggestions) {
-      SP.suggest( queryText ).then( ( response ) => {
-        suggest( response );
-      } );
+      SP.suggest( queryText ).then( ( response ) => suggest( response ) );
     }
 
   } );
@@ -42,11 +54,8 @@ SP.retrieveOptions().then( () => {
     chrome.tabs.query( {
       active: true,
     }, ( tabs ) => {
-
-      const { id, url } = tabs[0];
-
       // using the "post" request method, our pseudo-url doesn't work at chrome://<page>
-      (!url && SP.options.post) ? create( queryText ) : update( id, queryText );
+      update( tabs[0].id, queryText );
 
     } );
 
@@ -70,24 +79,20 @@ SP.retrieveOptions().then( () => {
     },
     title   : chrome.i18n.getMessage( "context_menu_search" )
   } );
-
+  
   /**
-   * Adds the Request listener.
+   * Adds the navigation listener to filters blocked search engines.
    */
-  chrome.webRequest.onBeforeRequest.addListener( ( details ) => {
+  chrome.webNavigation.onBeforeNavigate.addListener( ( details ) => {
 
-    if (!SP.options.filter) {
-      return { cancel: false };
+    const query = processQuery( details.url );
+
+    if (query.isMatched && query.queryText !== null && details.frameId === 0) {
+      update( details.tabId, query.queryText, true );
+      return;
     }
 
-    const filter = new FilterController( SP.options.filter );
-    const queryText = filter.execute( details.url );
+  }, { url: SP.filterMatches } );
 
-    if (!queryText) {
-      return { cancel: false };
-    }
-
-    return { redirectUrl: SP.query( decodeURIComponent( queryText ), true ) };
-
-  }, { urls: ["<all_urls>"], types: ["main_frame"] }, ["blocking"] );
 } );
+

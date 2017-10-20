@@ -40,9 +40,11 @@ export class SPUrl {
 
     if (options.post && !forceGet) {
 
-      const formCallback = this.buildPostForm.toString().replace( "{}", JSON.stringify( params ) ).replace( "[url]", this._url ); // tslint:disable-line
+      const formCallback = this.buildPostForm.toString()
+        .replace( "{}", JSON.stringify( params ) )
+        .replace( "[url]", this._url );
 
-      return `javascript: (${formCallback})();`;
+      return `javascript:(${formCallback.replace( /\n/g, "" )}());`;
 
     } else {
       return this.buildGetUrl( this._url, params );
@@ -52,8 +54,8 @@ export class SPUrl {
   /**
    * Creates a suggest url.
    *
-   * @param {string} text
-   * @returns {{url: string; params: {}}} url and params (needed for POST)
+   * @param {string} text - search text.
+   * @returns {{url: string; params: {}}}
    */
   public suggest( text: string ): { url: string, params: {} } {
 
@@ -68,7 +70,7 @@ export class SPUrl {
   }
 
   /**
-   * Builds a fake form for adding to a page.
+   * Builds a fake post form for adding to a page.
    */
   private buildPostForm(): void {
 
@@ -82,7 +84,7 @@ export class SPUrl {
 
     for (const key in params) {
 
-      if (!params.hasOwnProperty( key )) {
+      if (!params.hasOwnProperty( key ) || params[key] === "") {
         continue;
       }
 
@@ -95,7 +97,6 @@ export class SPUrl {
 
     document.body.appendChild( form );
     form.submit();
-
   }
 
   /**
@@ -110,14 +111,17 @@ export class SPUrl {
   }
 
   /**
-   * Converts a parameters object to a query string.
+   * Converts an object of parameters to a query string.
    *
    * @param params - url params
    * @returns {string} - query string (param=value)
    */
   private serialise( params ): string {
 
-    return Object.entries( params ).filter( ( [key, value] ) => value ).map( ( [key, value] ) => `${key}=${encodeURIComponent( value )}` ).join( "&" ); // tslint:disable-line
+    return Object.entries( params )
+      .filter( ( [key, value] ) => value )
+      .map( ( [key, value] ) => `${key}=${encodeURIComponent( value )}` )
+      .join( "&" );
 
   }
 

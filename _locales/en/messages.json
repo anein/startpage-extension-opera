@@ -14,10 +14,10 @@
   "options_page"          : {
     "message": "StartPage Extension Options"
   },
-  "options_w_start"         : {
+  "options_w_start"       : {
     "message": "start"
   },
-  "options_w_page"         : {
+  "options_w_page"        : {
     "message": "page"
   },
   "options_title"         : {
@@ -29,11 +29,14 @@
   "options_post"          : {
     "message": "Use POST"
   },
+  "options_post_hint"     : {
+    "message": "works with the keyword"
+  },
   "options_block"         : {
     "message": "Block engines"
   },
-  "options_block_hint"         : {
-    "message": "uses GET requests"
+  "options_block_hint"    : {
+    "message": "uses only GET requests"
   },
   "options_suggestions"   : {
     "message": "Search suggestions"
@@ -65,7 +68,7 @@
   "options_block_seznam"  : {
     "message": "Seznam"
   },
-  "options_block_yahoo"  : {
+  "options_block_yahoo"   : {
     "message": "Yahoo"
   }
 }

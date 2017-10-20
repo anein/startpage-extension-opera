@@ -6,5 +6,5 @@ export interface ISPOptions {
   // the suggestions flag enables/disables displaying query suggestions in the omnibox.
   suggestions: boolean;
   //
-  filter?: any[];
+  filters?: any[];
 }

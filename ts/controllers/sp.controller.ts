@@ -1,3 +1,4 @@
+import { FilterController } from "@/controllers/filter.controller";
 import { ISPOptions } from "@/services/interfaces/options.interface";
 import { SPOptionsModel } from "@/services/models/options.model";
 import { SPOptions } from "@/services/options.service";
@@ -6,7 +7,7 @@ import { SPUrl } from "@/services/url.service";
 export class SP {
 
   /**
-   * Create a query url. If the flag "POST" was set it returns a link in form of javascript.
+   * Creates a query url. If the "POST" flag was set it returns a link in form of javascript.
    *
    * @param {string} text - search text
    * @param {boolean} fget - create a get request by force
@@ -75,6 +76,27 @@ export class SP {
    */
   public static get options() {
     return SPOptions.Instance.options;
+  }
+
+  /**
+   * Gets converted into a list of urlMatches filters
+   *
+   * @returns {chrome.events.UrlFilter[]}
+   */
+  public static get filterMatches(): chrome.events.UrlFilter[] {
+
+    const filters = new FilterController( SPOptions.Instance.options.filters ).filters;
+
+    const matches = [];
+
+    for (const item of filters) {
+
+      const filter = item.filter.toString();
+      matches.push( { urlMatches: filter.slice( 1, filter.length - 1 ) } );
+    }
+
+    return matches;
+
   }
 
   /**

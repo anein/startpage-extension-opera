@@ -1,26 +1,26 @@
 {
-  "name"           : "startpage-opera",
-  "version"        : "1.0.0",
-  "description"    : "Unofficial StartPage Search Extentions for Opera",
-  "author"         : "Alexander Ein (@alexanderein)",
-  "license"        : "MIT",
-  "scripts"        : {
+  "name": "startpage-opera",
+  "version": "1.0.0",
+  "description": "Unofficial StartPage Search Extention for Opera",
+  "author": "Alexander Ein (@alexanderein)",
+  "license": "MIT",
+  "scripts": {
     "build": " webpack --config webpack.config.js",
     "watch": " webpack --watch --config webpack.config.js "
   },
-  "dependencies"   : {},
+  "dependencies": {},
   "devDependencies": {
-    "@types/chrome"              : "^0.0.47",
-    "@types/core-js"             : "^0.9.42",
-    "@types/text-encoding"       : "^0.0.31",
-    "copy-webpack-plugin"        : "^4.0.1",
+    "@types/chrome": "^0.0.47",
+    "@types/core-js": "^0.9.42",
+    "@types/text-encoding": "^0.0.31",
+    "copy-webpack-plugin": "^4.0.1",
     "extract-text-webpack-plugin": "^2.1.2",
-    "ts-loader"                  : "^2.2.2",
-    "tslint"                     : "^5.5.0",
-    "typescript"                 : "^2.4.1",
-    "webpack"                    : "^3.1.0",
-    "webpack-externals-plugin"   : "^1.0.0",
-    "webpack-md5-hash"           : "^0.0.5",
-    "webpack-merge"              : "^4.1.0"
+    "ts-loader": "^2.2.2",
+    "tslint": "^5.5.0",
+    "typescript": "^2.4.1",
+    "webpack": "^3.1.0",
+    "webpack-externals-plugin": "^1.0.0",
+    "webpack-md5-hash": "^0.0.5",
+    "webpack-merge": "^4.1.0"
   }
 }
