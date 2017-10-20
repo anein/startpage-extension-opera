@@ -27,7 +27,6 @@
     "*://*/*",
     "contextMenus",
     "storage",
-    "tabs",
     "webNavigation"
   ]
 }
